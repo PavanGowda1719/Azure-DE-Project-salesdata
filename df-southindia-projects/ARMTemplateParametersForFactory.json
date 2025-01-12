@@ -8,6 +8,12 @@
 		"azuresql_password": {
 			"value": ""
 		},
+		"lk_adls_salesdata_accountKey": {
+			"value": ""
+		},
+		"lk_sql_git_password": {
+			"value": ""
+		},
 		"Githuhconnection_properties_typeProperties_url": {
 			"value": "https://raw.githubusercontent.com/"
 		},
@@ -18,6 +24,18 @@
 			"value": "salesdata"
 		},
 		"azuresql_properties_typeProperties_userName": {
+			"value": "Pavan"
+		},
+		"lk_adls_salesdata_properties_typeProperties_url": {
+			"value": "https://adlssouthindiastorage.dfs.core.windows.net/"
+		},
+		"lk_sql_git_properties_typeProperties_server": {
+			"value": "south-india-sales-project.database.windows.net"
+		},
+		"lk_sql_git_properties_typeProperties_database": {
+			"value": "salesdata"
+		},
+		"lk_sql_git_properties_typeProperties_userName": {
 			"value": "Pavan"
 		}
 	}

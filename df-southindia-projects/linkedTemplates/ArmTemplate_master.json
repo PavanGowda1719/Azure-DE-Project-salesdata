@@ -11,6 +11,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'azuresql'"
 		},
+		"lk_adls_salesdata_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'lk_adls_salesdata'"
+		},
+		"lk_sql_git_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'lk_sql_git'"
+		},
 		"Githuhconnection_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://raw.githubusercontent.com/"
@@ -24,6 +32,22 @@
 			"defaultValue": "salesdata"
 		},
 		"azuresql_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Pavan"
+		},
+		"lk_adls_salesdata_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlssouthindiastorage.dfs.core.windows.net/"
+		},
+		"lk_sql_git_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "south-india-sales-project.database.windows.net"
+		},
+		"lk_sql_git_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "salesdata"
+		},
+		"lk_sql_git_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Pavan"
 		},
@@ -57,6 +81,12 @@
 					"azuresql_password": {
 						"value": "[parameters('azuresql_password')]"
 					},
+					"lk_adls_salesdata_accountKey": {
+						"value": "[parameters('lk_adls_salesdata_accountKey')]"
+					},
+					"lk_sql_git_password": {
+						"value": "[parameters('lk_sql_git_password')]"
+					},
 					"Githuhconnection_properties_typeProperties_url": {
 						"value": "[parameters('Githuhconnection_properties_typeProperties_url')]"
 					},
@@ -68,6 +98,18 @@
 					},
 					"azuresql_properties_typeProperties_userName": {
 						"value": "[parameters('azuresql_properties_typeProperties_userName')]"
+					},
+					"lk_adls_salesdata_properties_typeProperties_url": {
+						"value": "[parameters('lk_adls_salesdata_properties_typeProperties_url')]"
+					},
+					"lk_sql_git_properties_typeProperties_server": {
+						"value": "[parameters('lk_sql_git_properties_typeProperties_server')]"
+					},
+					"lk_sql_git_properties_typeProperties_database": {
+						"value": "[parameters('lk_sql_git_properties_typeProperties_database')]"
+					},
+					"lk_sql_git_properties_typeProperties_userName": {
+						"value": "[parameters('lk_sql_git_properties_typeProperties_userName')]"
 					}
 				}
 			},
