@@ -126,6 +126,42 @@
 						}
 					}
 				]
+			},
+			{
+				"name": "Stored procedure",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Copy_data_from_sql_adls",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[STOREDPROCEDURE_1]",
+					"storedProcedureParameters": {
+						"last_date": {
+							"value": {
+								"value": "@activity('Maxdate').output.value[0].maxdate",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "azuresql",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": []
