@@ -197,7 +197,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_sqldb",
+						"referenceName": "ds_sql_github",
 						"type": "DatasetReference"
 					}
 				]
