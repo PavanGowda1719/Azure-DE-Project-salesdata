@@ -43,7 +43,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select max(date_id) from dbo.sales",
+						"sqlReaderQuery": "select max(date_id) as maxdate from dbo.sales",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -53,6 +53,79 @@
 					},
 					"firstRowOnly": false
 				}
+			},
+			{
+				"name": "Copy_data_from_sql_adls",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "lastdate",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Maxdate",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "select * from dbo.sales where Date_ID > '@{activity('lastdate').output.value[0].last_date}' and Date_ID <= '@{activity('Maxdate').output.value[0].maxdate}'",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings",
+							"copyBehavior": "FlattenHierarchy"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_sqldb",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_adlssalesdata",
+						"type": "DatasetReference",
+						"parameters": {
+							"bronze": "broze"
+						}
+					}
+				]
 			}
 		],
 		"annotations": []

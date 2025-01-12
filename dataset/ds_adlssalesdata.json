@@ -5,12 +5,20 @@
 			"referenceName": "lk_adls_salesdata",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"bronze": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "bronze",
+				"folderPath": {
+					"value": "@dataset().bronze",
+					"type": "Expression"
+				},
 				"fileSystem": "salesdata"
 			},
 			"columnDelimiter": ",",
