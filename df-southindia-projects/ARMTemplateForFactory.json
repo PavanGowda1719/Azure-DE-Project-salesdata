@@ -185,7 +185,7 @@
 								"referenceName": "ds_adlssalesdata",
 								"type": "DatasetReference",
 								"parameters": {
-									"bronze": "broze"
+									"Foldername": "broze"
 								}
 							}
 						]
@@ -467,7 +467,7 @@
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
-					"bronze": {
+					"Foldername": {
 						"type": "string"
 					}
 				},
@@ -477,7 +477,7 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"folderPath": {
-							"value": "@dataset().bronze",
+							"value": "@dataset().Foldername",
 							"type": "Expression"
 						},
 						"fileSystem": "salesdata"
