@@ -1,0 +1,9 @@
+{
+	"name": "df-southindia-projects",
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "9e942f6c-c56d-4cf3-9f4c-367fdde58e32",
+		"tenantId": "822f5ede-68d9-4186-b254-481bdd838ae8"
+	}
+}
