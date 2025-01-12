@@ -1,0 +1,23 @@
+{
+	"name": "ds_adlssalesdata",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lk_adls_salesdata",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "bronze",
+				"fileSystem": "salesdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
